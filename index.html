@@ -2,17 +2,351 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <title>我的GitHub主页</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的个人主页</title>
     <style>
-        body { max-width: 800px; margin: 2rem auto; font-family: Arial; text-align: center; }
-        h1 { color: #2c3e50; }
-        .avatar { width: 150px; border-radius: 50%; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* 侧边栏样式 */
+        .sidebar {
+            width: 250px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem 1rem;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+        }
+
+        .profile {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 4px solid white;
+            margin-bottom: 1rem;
+            object-fit: cover;
+        }
+
+        .profile h1 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .profile p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .nav-menu {
+            list-style: none;
+        }
+
+        .nav-item {
+            margin-bottom: 0.5rem;
+        }
+
+        .nav-link {
+            display: block;
+            padding: 0.75rem 1rem;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .nav-link:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateX(5px);
+        }
+
+        .nav-link.active {
+            background: rgba(255, 255, 255, 0.2);
+            font-weight: bold;
+        }
+
+        /* 主内容区样式 */
+        .main-content {
+            margin-left: 250px;
+            flex: 1;
+            padding: 3rem;
+            background: #f5f7fa;
+        }
+
+        .content-section {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .content-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+
+        .content-card h2 {
+            color: #667eea;
+            margin-bottom: 1rem;
+            font-size: 2rem;
+        }
+
+        .content-card h3 {
+            color: #764ba2;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .content-card p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        .content-card ul {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .content-card li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+            }
+
+            .main-content {
+                margin-left: 0;
+                padding: 1.5rem;
+            }
+
+            .nav-menu {
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .nav-item {
+                margin: 0.25rem;
+            }
+        }
+
+        /* 社交链接 */
+        .social-links {
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.2rem;
+            margin: 0 0.5rem;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        .social-links a:hover {
+            opacity: 0.7;
+        }
     </style>
 </head>
 <body>
-    <img class="avatar" src="https://github.com/你的用户名.png" alt="头像">
-    <h1>你好，我是XXX</h1>
-    <p>GitHub 个人主页示例 🚀</p>
-    <p>我的仓库：<a href="https://github.com/你的用户名">点击访问</a></p>
+    <div class="container">
+        <!-- 侧边栏 -->
+        <aside class="sidebar">
+            <div class="profile">
+                <img src="https://via.placeholder.com/120" alt="头像" class="profile-img">
+                <h1>你的名字</h1>
+                <p>博士生 | 研究方向</p>
+            </div>
+            
+            <nav>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a class="nav-link active" data-page="about">📖 个人介绍</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-page="motivation">🎓 读博动机</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="social-links">
+                <a href="mailto:your-email@example.com" title="Email">📧</a>
+                <a href="https://github.com/yourusername" target="_blank" title="GitHub">💻</a>
+                <a href="https://scholar.google.com/" target="_blank" title="Google Scholar">🎓</a>
+            </div>
+        </aside>
+
+        <!-- 主内容区 -->
+        <main class="main-content">
+            <!-- 个人介绍页面 -->
+            <section id="about" class="content-section active">
+                <div class="content-card">
+                    <h2>👋 关于我</h2>
+                    <p>
+                        你好！我是[你的名字]，目前是[学校名称]的博士生，研究方向为[研究领域]。
+                        我对[具体研究兴趣]充满热情，致力于通过研究解决[某个问题]。
+                    </p>
+                    <p>
+                        在过去的学习和研究中，我积累了[技能/经验]，并在[领域]取得了一些成果。
+                    </p>
+                </div>
+
+                <div class="content-card">
+                    <h2>🎓 教育背景</h2>
+                    <h3>博士 - [学校名称]</h3>
+                    <p><strong>时间：</strong>2024年 - 至今</p>
+                    <p><strong>专业：</strong>[专业名称]</p>
+                    <p><strong>导师：</strong>[导师姓名]</p>
+
+                    <h3>硕士 - [学校名称]</h3>
+                    <p><strong>时间：</strong>2022年 - 2024年</p>
+                    <p><strong>专业：</strong>[专业名称]</p>
+                </div>
+
+                <div class="content-card">
+                    <h2>🔬 研究兴趣</h2>
+                    <ul>
+                        <li>研究方向一：[描述]</li>
+                        <li>研究方向二：[描述]</li>
+                        <li>研究方向三：[描述]</li>
+                    </ul>
+                </div>
+
+                <div class="content-card">
+                    <h2>📝 发表论文</h2>
+                    <p><strong>[论文标题]</strong></p>
+                    <p>作者, 会议/期刊名称, 年份</p>
+                </div>
+            </section>
+
+            <!-- 读博动机页面 -->
+            <section id="motivation" class="content-section">
+                <div class="content-card">
+                    <h2>🎯 为什么选择读博</h2>
+                    <p>
+                        选择攻读博士学位是我人生中一个重要的决定。这个决定源于多个方面的考虑：
+                    </p>
+                    
+                    <h3>💡 对知识的热爱</h3>
+                    <p>
+                        从本科开始，我就对[研究领域]产生了浓厚的兴趣。每当深入了解一个新的概念或解决一个复杂的问题时，
+                        那种成就感让我意识到学术研究是我真正热爱的事业。
+                    </p>
+
+                    <h3>🌟 追求创新与突破</h3>
+                    <p>
+                        我希望能够在[具体领域]做出有意义的贡献。当前[领域]面临着[某些挑战]，
+                        我相信通过系统的研究和创新，可以找到更好的解决方案。
+                    </p>
+
+                    <h3>🚀 长期职业规划</h3>
+                    <p>
+                        我的职业目标是[成为研究员/教授/等]。攻读博士学位不仅能让我获得深厚的学术功底，
+                        还能培养独立思考和解决问题的能力，这些都是实现我职业目标的必要条件。
+                    </p>
+
+                    <h3>🌍 社会影响力</h3>
+                    <p>
+                        我希望我的研究能够对社会产生积极的影响。特别是在[具体应用场景]方面，
+                        我相信通过技术创新可以改善人们的生活质量。
+                    </p>
+                </div>
+
+                <div class="content-card">
+                    <h2>📚 我的研究计划</h2>
+                    <p>
+                        在博士期间，我计划专注于以下几个方面：
+                    </p>
+                    <ul>
+                        <li><strong>第一年：</strong>夯实基础，广泛阅读相关文献，确定具体研究方向</li>
+                        <li><strong>第二年：</strong>开展初步研究，尝试新的方法和思路</li>
+                        <li><strong>第三年：</strong>深入研究，发表高质量论文</li>
+                        <li><strong>第四年及以后：</strong>完善研究成果，撰写博士论文</li>
+                    </ul>
+                </div>
+
+                <div class="content-card">
+                    <h2>💪 我的优势与准备</h2>
+                    <p>
+                        为了更好地完成博士学业，我已经做了充分的准备：
+                    </p>
+                    <ul>
+                        <li>扎实的理论基础和编程能力</li>
+                        <li>良好的科研训练和论文写作经验</li>
+                        <li>持之以恒的学习态度和强大的自我驱动力</li>
+                        <li>良好的团队协作和沟通能力</li>
+                    </ul>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        // 页面切换功能
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const contentSections = document.querySelectorAll('.content-section');
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // 移除所有active类
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    contentSections.forEach(s => s.classList.remove('active'));
+                    
+                    // 添加active类到当前项
+                    this.classList.add('active');
+                    const pageId = this.getAttribute('data-page');
+                    document.getElementById(pageId).classList.add('active');
+                    
+                    // 滚动到顶部
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            });
+        });
+    </script>
 </body>
 </html>
