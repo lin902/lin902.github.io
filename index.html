@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>卞葛霖 - 个人主页</title>
+    <!-- 自定义图标（可替换为自己的favicon） -->
+    <link rel="icon" href="https://github.githubassets.com/favicons/favicon.svg" type="image/svg+xml">
+    <style>
+        /* 全局样式重置与基础设置 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        }
+        body {
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+            padding-bottom: 60px;
+        }
+        /* 头部导航样式 */
+        header {
+            background-color: #2c3e50;
+            color: #fff;
+            padding: 2rem 5%;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 0.8rem;
+        }
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 1.2rem;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #3498db;
+        }
+        /* 主内容区样式 */
+        .container {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 5%;
+        }
+        section {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+        }
+        section h2 {
+            color: #2c3e50;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 2px solid #3498db;
+        }
+        /* 个人信息样式 */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        .info-item i {
+            color: #3498db;
+            font-size: 1.2rem;
+        }
+        /* 经历列表样式 */
+        .experience-list {
+            list-style: none;
+        }
+        .experience-item {
+            margin-bottom: 1.8rem;
+            padding-left: 1.2rem;
+            border-left: 3px solid #3498db;
+        }
+        .experience-item h3 {
+            color: #2c3e50;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+        .experience-meta {
+            color: #7f8c8d;
+            font-size: 0.95rem;
+            margin-bottom: 0.8rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .experience-desc {
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+        /* 技能与专利样式 */
+        .skill-grid, .patent-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.2rem;
+            margin-top: 1rem;
+        }
+        .skill-card, .patent-card {
+            background-color: #f8f9fa;
+            padding: 1.2rem;
+            border-radius: 6px;
+            border-left: 3px solid #3498db;
+        }
+        .skill-card h4, .patent-card h4 {
+            color: #2c3e50;
+            margin-bottom: 0.6rem;
+        }
+        /* 响应式调整 */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+            section h2 {
+                font-size: 1.5rem;
+            }
+            .info-grid, .skill-grid, .patent-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        /* 页脚样式 */
+        footer {
+            background-color: #2c3e50;
+            color: #fff;
+            text-align: center;
+            padding: 1.5rem 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            font-size: 0.9rem;
+        }
+    </style>
+    <!-- 引入图标库（用于联系方式、技能图标） -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <!-- 头部导航区 -->
+    <header>
+        <h1>卞葛霖</h1>
+        <p>LLM隐式推理 · Agent应用 · 人工智能算法工程师 | 港科广硕士在读</p>
+        <nav>
+            <ul>
+                <li><a href="#about"><i class="fa fa-user-circle"></i> 关于我</a></li>
+                <li><a href="#education"><i class="fa fa-graduation-cap"></i> 教育背景</a></li>
+                <li><a href="#experience"><i class="fa fa-briefcase"></i> 实习经历</a></li>
+                <li><a href="#projects"><i class="fa fa-code"></i> 项目经历</a></li>
+                <li><a href="#skills"><i class="fa fa-cogs"></i> 技能与专利</a></li>
+                <li><a href="#contact"><i class="fa fa-envelope"></i> 联系我</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- 主内容区 -->
+    <div class="container">
+        <!-- 关于我 -->
+        <section id="about">
+            <h2>关于我</h2>
+            <div class="info-grid">
+                <div class="info-item">
+                    <i class="fa fa-calendar"></i>
+                    <span>出生日期：2001年2月</span>
+                </div>
+                <div class="info-item">
+                    <i class="fa fa-map-marker"></i>
+                    <span>籍贯：江苏南通</span>
+                </div>
+                <div class="info-item">
+                    <i class="fa fa-book"></i>
+                    <span>兴趣方向：LLM隐式推理、可解释性；Agent应用</span>
+                </div>
+                <div class="info-item">
+                    <i class="fa fa-refresh"></i>
+                    <span>当前状态：Gap Year，寻找博导与科研合作</span>
+                </div>
+            </div>
+            <p style="margin-top: 1rem; font-size: 1.05rem;">
+                港科广大数据人工智能硕士，南京邮电大学通信工程学士，GPA 4.17/5.0（91.7分）。具备丰富的AI算法研发经验，深耕大模型Agent、LLM推理优化、分布式计算领域，曾任职于百度、华为、创新工场等企业，参与多个核心项目研发，擅长Python/C++编程、机器学习模型优化、Git协作开发，致力于通过技术解决复杂的人工智能应用问题。
+            </p>
+        </section>
+
+        <!-- 教育背景 -->
+        <section id="education">
+            <h2>教育背景</h2>
+            <ul class="experience-list">
+                <li class="experience-item">
+                    <h3>香港科技大学（广州）</h3>
+                    <div class="experience-meta">
+                        <span><i class="fa fa-graduation-cap"></i> 大数据人工智能理学硕士</span>
+                        <span><i class="fa fa-calendar"></i> 2023.09 - 2025.10</span>
+                        <span><i class="fa fa-star"></i> GPA：A</span>
+                    </div>
+                    <p class="experience-desc">主修课程：数据挖掘、深度学习、机器学习，聚焦LLM隐式推理与Agent应用方向研究，当前参与隐式推理优化项目，探究隐藏层信息量与熵值动态变化规律。</p>
+                </li>
+                <li class="experience-item">
+                    <h3>南京邮电大学</h3>
+                    <div class="experience-meta">
+                        <span><i class="fa fa-graduation-cap"></i> 通信工程学士</span>
+                        <span><i class="fa fa-calendar"></i> 2019.09 - 2023.06</span>
+                        <span><i class="fa fa-star"></i> GPA：4.17/5.0（91.7分）</span>
+                    </div>
+                    <p class="experience-desc">主修课程：通信原理、信号与系统、计算机网络，辅修人工智能相关课程，多次获得校一等奖学金、三好学生荣誉，具备扎实的通信与计算机交叉学科基础。</p>
+                </li>
+            </ul>
+        </section>
+
+        <!-- 实习经历 -->
+        <section id="experience">
+            <h2>实习经历</h2>
+            <ul class="experience-list">
+                <li class="experience-item">
+                    <h3>香港科技大学（广州）- 自由探索项目</h3>
+                    <div class="experience-meta">
+                        <span><i class="fa fa-briefcase"></i> 研究方向：隐式推理</span>
+                        <span><i class="fa fa-calendar"></i> 2025.09 - 今</span>
+                    </div>
+                    <p class="experience-desc">受Coconut启发，针对现有隐式推理方法“效率优但准确率与可解释性弱”的短板，探究隐藏层信息量、熵及能量等关键指标在推理过程中的动态变化规律，结合压缩损失提出兼顾准确率与可解释性的隐式推理新方案。</p>
+                </li>
+                <li class="experience-item">
+                    <h3>百度MEG - 智能体策略研发部</h3>
+                    <div class="experience-meta">
+                        <span><i class="fa fa-briefcase"></i> Agent算法工程师</span>
+                        <span><i class="fa fa-calendar"></i> 2025.04 - 2025.08</span>
+                    </div>
+                    <p class="experience-desc">1. 负责数字人视频内容的图文一致性配图接口，通过打分系统实现字幕切割与图片相关性匹配，完成关键文本配图；<br>
+                       2. 针对20万条线上数据优化历史智能体生成召回，重新训练QQDNN模型，将准确率由73.1%提升至87.5%，减少重复生成问题。</p>
+                </li>
+                <li class="experience-item">
+                    <h3>华为2012实验室 - 分布式计算实验室</h3>
+                    <div class="experience-meta">
+                        <span><i class="fa fa-briefcase"></i> AI算法工程师</span>
+                        <span><i class="fa fa-calendar"></i> 2024.10 - 2025.03</span>
+                    </div>
+                    <p class="experience-desc">1. 负责MindSpore aclnn算子开发，对标PyTorch 2.1新增mindspore.mint.addcmul和mindspore.tensor.addcmul接口，支持Ascend/CPU/GPU平台及Pynative/静态图模式，全程参与方案设计、开发、自测与流水线合入；<br>
+                       2. 开发自动化函数对比脚本，结合爬虫与数据处理技术，提取MindSpore与PyTorch函数及参数并对比差异，为框架优化提供支撑。</p>
+                </li>
+                <li class="experience-item">
+                    <h3>创新工场 - SeedV实验室</h3>
+                    <div class="experience-meta">
+                        <span><i class="fa fa-briefcase"></i> 大模型Agent算法工程师</span>
+                        <span><i class="fa fa-calendar"></i> 2024.06 - 2024.09</span>
+                    </div>
+                    <p class="experience-desc">1. 基于AutoGen与AgentGroup框架改进群聊智能体，解决单轮对话、短时记忆、无主动话题瓶颈，实现token最小化下的自动多轮对话与长期记忆，结合数据清洗与Streamlit搭建交互式网页界面；<br>
+                       2. 优化剧本杀产品RAG框架，采用memo算法替代传统模型提升检索效率，通过HTTP接口与Dify工作流集成，设计实现支持长期记忆的新记忆类。</p>
+                </li>
+            </ul>
+        </section>
+
+        <!-- 项目经历 -->
+        <section id="projects">
+            <h2>项目经历</h2>
+            <ul class="experience-list">
+                <li class="experience-item">
+                    <h3>蚂蚁集团 - 大模型Agent产学研项目</h3>
+                    <div class="experience-meta">
+                        <span><i class="fa fa-code"></i> 项目方向：基于双向推理的检索优化框架</span>
+                        <span><i class="fa fa-calendar"></i> 2024.02 - 2024.06</span>
+                    </div>
+                    <p class="experience-desc">1. 研究Tool Learning训练策略与框架，学习大模型Agent最新Reward技术及ToolLlama、ToolAlpaca、AgentTuning等开源框架，实操部署ToolLlama与ToolAlpaca模型，分析API调用流程并可视化检索路径；<br>
+                       2. 提出双向推理算法应用于Agent检索过程，通过模拟潜在调用路径实现高效筛选排序，结合实时反馈优化搜索策略，显著提升LLMs处理复杂任务的能力。</p>
+                </li>
+                <li class="experience-item">
+                    <h3>基于LangChain的智能问答与MetaGPT个性化信息推送</h3>
+                    <div class="experience-meta">
+                        <span><i class="fa fa-code"></i> 开发方向：智能问答系统 + 个性化信息推送</span>
+                        <span><i class="fa fa-calendar"></i> 2024.06 - 2024.06</span>
+                    </div>
+                    <p class="experience-desc">1. LangChain智能问答：封装智谱API构建私有向量数据库，集成大模型与LangChain搭建搜索问答链，通过Streamlit部署知识库助手，提供直观易用的用户体验；<br>
+                       2. MetaGPT个性化订阅智能体：集成模型API设计智能体角色与动作，自动化从GitHub、HuggingFace收集数据，利用底层LLM分析内容，定制报告结构并推送至邮箱/微信。</p>
+                </li>
+            </ul>
+        </section>
+
+        <!-- 技能与专利 -->
+        <section id="skills">
+            <h2>技能与专利荣誉</h2>
+            <div class="skill-grid">
+                <div class="skill-card">
+                    <h4>计算机技能</h4>
+                    <ul style="list-style: disc; padding-left: 1.5rem;">
+                        <li>编程语言：Python（精通）、C++（熟练）、SQL（熟练）</li>
+                        <li>工具框架：Git（协作开发）、MindSpore、PyTorch、LangChain、MetaGPT、AutoGen</li>
+                        <li>其他：数据挖掘、深度学习、机器学习、爬虫技术、Streamlit部署</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <h4>语言能力</h4>
+                    <ul style="list-style: disc; padding-left: 1.5rem;">
+                        <li>英语：CET-6（537分）、ILETS（6.5分）</li>
+                        <li>中文：母语，具备优秀的技术文档撰写与沟通能力</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <h4>专利成果</h4>
+                    <ul style="list-style: disc; padding-left: 1.5rem;">
+                        <li>发明型专利：《基于物联网技术的安全智能校园卡》</li>
+                        <li>专利公开号：CN111414980A</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <h4>获奖荣誉</h4>
+                    <ul style="list-style: disc; padding-left: 1.5rem;">
+                        <li>2021年：全国数学建模大赛江苏省一等奖</li>
+                        <li>2020年：“挑战杯”课外科技竞赛校二等奖、外研社写作比赛一等奖</li>
+                        <li>校级荣誉：三好学生（3次）、一等奖学金（1次）、二等奖学金（1次）、三等奖学金（1次）</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 联系我 -->
+        <section id="contact">
+            <h2>联系我</h2>
+            <div class="info-grid" style="margin-top: 1rem;">
+                <div class="info-item">
+                    <i class="fa fa-envelope"></i>
+                    <a href="mailto:gbian883@connect.hkust_gz.edu.cn" style="color: #3498db; text-decoration: none;">gbian883@connect.hkust_gz.edu.cn</a>
+                </div>
+                <div class="info-item">
+                    <i class="fa fa-phone"></i>
+                    <a href="tel:+8613962859632" style="color: #3498db; text-decoration: none;">+86 13962859632</a>
+                </div>
+                <div class="info-item">
+                    <i class="fa fa-github"></i>
+                    <a href="https://github.com/你的GitHub用户名" target="_blank" style="color: #3498db; text-decoration: none;">GitHub主页（替换为你的链接）</a>
+                </div>
+                <div class="info-item">
+                    <i class="fa fa-file-text"></i>
+                    <a href="你的简历PDF链接" target="_blank" style="color: #3498db; text-decoration: none;">下载完整简历（可选）</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- 页脚 -->
+    <footer>
+        <p>&copy; 2025 卞葛霖 - 个人主页 | 基于GitHub Pages部署</p>
+    </footer>
+
+    <!-- 简单交互脚本：平滑滚动 -->
+    <script>
+        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
